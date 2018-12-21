@@ -28,11 +28,45 @@ print(pairingresult)
 print ("***********************************")
 #x = seats4[0]
 #print (x)
-for s in itertools.permutations(seats4):
-    print (str(s))
+for s in itertools.permutations(seats8):
+    #print (str(s))
+    partners = []
+    opponents = []
+    paira = s[0] * s[1]
+    pairb = s[2] * s[3]
+    partners.append(paira)
+    partners.append(pairb)
+    if len(s) > 4:
+        pairc = s[4] * s[5]
+        paird = s[6] * s[7]
+        partners.append(pairc)
+        partners.append(paird)
+    opp02 = s[0] * s[2]
+    opp03 = s[0] * s[3] 
+    opp12 = s[1] * s[2]
+    opp13 = s[1] * s[3]
+    opponents.append(opp02)
+    opponents.append(opp03)
+    opponents.append(opp12)
+    opponents.append(opp13)
+    if len(s) > 4:
+        opp45 = s[4] * s[5]
+        opp47 = s[4] * s[7] 
+        opp65 = s[6] * s[5]
+        opp67 = s[6] * s[7]
+        opponents.append(opp45)
+        opponents.append(opp03)
+        opponents.append(opp47)
+        opponents.append(opp67)
+    print(str(partners))
+    print(str(opponents))
     for t in itertools.permutations(seats4):
         print ("    " + str(t))
 
+#        for u in itertools.permutations(seats4):
+#            print ("        " + str(u))
+#            for v in itertools.permutations(seats4):
+#                print ("            " + str(v))
 
 
 #toggle this for 4 or 8 players
